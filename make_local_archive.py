@@ -1,4 +1,6 @@
 """This script is going to create a pretend/fake Internet Archive for our local test site
+
+
 """
 
 import os
@@ -11,7 +13,7 @@ import common
 
 SITE_FOLDER = "site"
 
-# When each snapshot was taken. Written the way the Internet Archive writes dates: YYYYMMDDhhmmss (year, month, day, hours, minutes, seconds)
+# When each snapshot was taken. Written the way the Internet Archive writes dates: YYYYMMDDmmss (year, month day, hours, minutes, seconds)
 
 OLD_SNAPSHOT_DATE = "20190101000000"
 NEW_SNAPSHOT_DATE = "20260101000000"
