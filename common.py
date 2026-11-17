@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 # True for testing it locally
 # False for running it against a rel website and real internet Archive
 
-LOCAL_TEST = False
+LOCAL_TEST = True
 
 # Where the local tests website is served from.
 
