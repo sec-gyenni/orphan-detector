@@ -31,9 +31,21 @@ axes.barh(step_names, counts, color=BAR_COLOUR, height=0.6)
 # Put the first step at the top, like a funnel
 axes.invert_yaxis()
 
-# Write the exact number at the end of each bar
+# Real websites have thousands of pages at the top and only a handful at the bottom. A "log" scale (1, 10, 100, 1000, ...) lets every bar be seen,
+# as in the paper's own charts. The small test site keeps a normal scale.
+use_log_scale = max(counts) > 1000
+if use_log_scale:
+    axes.set_xscale("log")
+
+# Write the exact number just past the end of each bar.
 for position in range(len(counts)):
-    axes.text(counts[position] + 0.5, position, str(counts[position]), va="center", color=TEXT_COLOUR)
+    if use_log_scale:
+        label_x = counts[position] * 1.1
+    else:
+        label_x = counts[position] + max(counts) * 0.01
+    axes.text(label_x, position, str(counts[position]),
+            va="center", color=TEXT_COLOUR)
+
 
 if common.LOCAL_TEST:    
     axes.set_title("Pages remaining after each filtering step (test site)")
@@ -43,6 +55,11 @@ else:
 # Keep the chart clean
 axes.spines["top"].set_visible(False)
 axes.spines["right"].set_visible(False)
+
+if use_log_scale:
+    axes.set_xlabel("Pages remaining (log scale)")
+else:
+    axes.set_xlabel("Pages remaining")
 
 figure.tight_layout()
 
