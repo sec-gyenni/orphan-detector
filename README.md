@@ -42,7 +42,7 @@ After this , your terminal prompt starts with `(orphan-env)`. Run `source orphan
 
 ### Running on the test website (recommended first)
 
-The test website is built on your own computer, so the correct answers ae known in advance: pages 21 to 28 are the planted orphans, and six other pages are "decoys" designed to trick the detector.
+The test website is built on your own computer, so the correct answers are known in advance: pages 21 to 28 are the planted orphans, and six other pages are "decoys" designed to trick the detector.
 
 1. Open `common.py` and check that `LOCAL_TEST = True`.
 2. Run:
